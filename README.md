@@ -27,11 +27,15 @@ Currently in initial development phase, focusing on:
 
 ## 📝 License
 
-[To be determined]
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0). See the [LICENSE](LICENSE) file for details.
+
+### Commercial Licensing
+
+This software is also available under a commercial license. For commercial use, modification, or distribution of this software, please contact the copyright holder to discuss commercial licensing options.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
+Contributions are welcome! Please read our [Contributor License Agreement](CONTRIBUTOR_LICENSE_AGREEMENT.md) before submitting pull requests.
 
 ## 📚 Documentation
 
