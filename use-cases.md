@@ -2,22 +2,18 @@
 
 ## 🤖 AI Agent Use Cases
 
+### UC-A1: Tool Discovery
+
 ```mermaid
 graph LR
     A[AI Agent] --> UC1((Discover Available Tools))
-    A --> UC2((Invoke Tool))
-    A --> UC3((Search by Capability))
-    UC3 -.includes.-> UC4((View Tool Documentation))
-    UC1 -.extends.-> UC4
+    UC1 -.extends.-> UC2((View Tool Documentation))
     
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style UC1 fill:#bbf,stroke:#333,stroke-width:1px
     style UC2 fill:#bbf,stroke:#333,stroke-width:1px
-    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
-    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
 ```
 
-### UC-A1: Tool Discovery
 **Actor**: AI Agent  
 **Goal**: Discover available tools across the network  
 **Flow**:
@@ -28,6 +24,20 @@ graph LR
 5. Agent receives comprehensive tool catalog for potential use
 
 ### UC-A2: Tool Invocation
+
+```mermaid
+graph LR
+    A[AI Agent] --> UC1((Invoke Tool))
+    UC1 --> UC2((Registry))
+    UC2 --> UC3((Tool Execution))
+    UC3 --> A
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 **Actor**: AI Agent  
 **Goal**: Execute a specific tool functionality  
 **Flow**:
@@ -40,6 +50,19 @@ graph LR
 7. Agent receives results transparently
 
 ### UC-A3: Tool Search by Capability
+
+```mermaid
+graph LR
+    A[AI Agent] --> UC1((Search by Capability))
+    UC1 -.includes.-> UC2((View Tool Documentation))
+    UC1 --> UC3((Ranked Tool List))
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 **Actor**: AI Agent  
 **Goal**: Find tools that match specific functional requirements  
 **Flow**:
@@ -50,22 +73,20 @@ graph LR
 
 ## 🧑‍💻 Tool Provider Use Cases
 
+### UC-P1: Tool Registration
+
 ```mermaid
 graph LR
     P[Tool Provider] --> UC1((Register Tool))
-    P --> UC2((Update Tool))
-    P --> UC3((Define Billing Terms))
-    UC1 -.includes.-> UC4((Define Access Controls))
-    UC2 -.includes.-> UC4
+    UC1 -.includes.-> UC2((Define Access Controls))
+    UC1 --> UC3((Network Announcement))
     
     style P fill:#f96,stroke:#333,stroke-width:2px
     style UC1 fill:#bbf,stroke:#333,stroke-width:1px
     style UC2 fill:#bbf,stroke:#333,stroke-width:1px
     style UC3 fill:#bbf,stroke:#333,stroke-width:1px
-    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
 ```
 
-### UC-P1: Tool Registration
 **Actor**: Tool Provider  
 **Goal**: Make a tool available to the network  
 **Flow**:
@@ -77,6 +98,19 @@ graph LR
 6. Tool becomes discoverable by agents across the network
 
 ### UC-P2: Tool Update
+
+```mermaid
+graph LR
+    P[Tool Provider] --> UC1((Update Tool))
+    UC1 -.includes.-> UC2((Define Access Controls))
+    UC1 --> UC3((Version Management))
+    
+    style P fill:#f96,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 **Actor**: Tool Provider  
 **Goal**: Deploy a new version of an existing tool  
 **Flow**:
@@ -88,6 +122,19 @@ graph LR
 6. Agents can discover and use either version according to compatibility needs
 
 ### UC-P3: Define Billing Terms
+
+```mermaid
+graph LR
+    P[Tool Provider] --> UC1((Define Billing Terms))
+    UC1 --> UC2((Store in Metadata))
+    UC2 --> UC3((Advertise Terms))
+    
+    style P fill:#f96,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 **Actor**: Tool Provider  
 **Goal**: Establish payment structure for tool usage  
 **Flow**:
@@ -100,13 +147,14 @@ graph LR
 
 ## 👤 Operator Use Cases
 
+### UC-O1: Network Joining
+
 ```mermaid
 graph LR
     O[Node Operator] --> UC1((Join Network))
-    O --> UC2((Install Local Tool))
-    O --> UC3((Configure Access Controls))
-    UC1 -.includes.-> UC4((Configure Node))
-    UC2 -.includes.-> UC4
+    UC1 -.includes.-> UC2((Configure Node))
+    UC1 --> UC3((Peer Discovery))
+    UC3 --> UC4((Tool Synchronization))
     
     style O fill:#9f6,stroke:#333,stroke-width:2px
     style UC1 fill:#bbf,stroke:#333,stroke-width:1px
@@ -115,7 +163,6 @@ graph LR
     style UC4 fill:#bbf,stroke:#333,stroke-width:1px
 ```
 
-### UC-O1: Network Joining
 **Actor**: Node Operator  
 **Goal**: Connect a new node to the P2P network  
 **Flow**:
@@ -128,6 +175,21 @@ graph LR
 7. Node becomes a fully functional part of the network
 
 ### UC-O2: Local Tool Installation
+
+```mermaid
+graph LR
+    O[Node Operator] --> UC1((Install Local Tool))
+    UC1 -.includes.-> UC2((Configure Node))
+    UC1 --> UC3((Download Package))
+    UC3 --> UC4((Local Configuration))
+    
+    style O fill:#9f6,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 **Actor**: Node Operator  
 **Goal**: Install tool for local execution  
 **Flow**:
@@ -140,6 +202,19 @@ graph LR
 7. Tool becomes available for direct invocation without network relaying
 
 ### UC-O3: Access Control Configuration
+
+```mermaid
+graph LR
+    O[Node Operator] --> UC1((Configure Access Controls))
+    UC1 --> UC2((Apply Restrictions))
+    UC2 --> UC3((Enforce Rules))
+    
+    style O fill:#9f6,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 **Actor**: Node Operator  
 **Goal**: Restrict access to specific tools  
 **Flow**:
@@ -152,13 +227,15 @@ graph LR
 
 ## 💼 Financial Use Cases
 
+### UC-F1: Transaction Recording
+
 ```mermaid
 graph LR
     N1[Registry Node A] --> UC1((Record Transactions))
-    N2[Registry Node B] --> UC2((Reconcile Billing))
-    UC1 -.extends.-> UC3((Generate Reports))
-    UC2 -.extends.-> UC3
-    UC2 -.includes.-> UC4((Mutual Clearing))
+    N2[Registry Node B] --> UC1
+    UC1 --> UC2((Mutual Signing))
+    UC2 --> UC3((Store Records))
+    UC1 -.extends.-> UC4((Generate Reports))
     
     style N1 fill:#99f,stroke:#333,stroke-width:2px
     style N2 fill:#99f,stroke:#333,stroke-width:2px
@@ -168,7 +245,6 @@ graph LR
     style UC4 fill:#bbf,stroke:#333,stroke-width:1px
 ```
 
-### UC-F1: Transaction Recording
 **Actor**: Registry Nodes  
 **Goal**: Track billable tool usage  
 **Flow**:
@@ -179,6 +255,25 @@ graph LR
 5. Both nodes store the mutually signed record in their respective ledgers
 
 ### UC-F2: Billing Reconciliation
+
+```mermaid
+graph LR
+    N1[Registry Node A] --> UC1((Reconcile Billing))
+    N2[Registry Node B] --> UC1
+    UC1 -.includes.-> UC2((Mutual Clearing))
+    UC1 --> UC3((Calculate Balances))
+    UC3 --> UC4((Generate Invoices))
+    UC1 -.extends.-> UC5((Generate Reports))
+    
+    style N1 fill:#99f,stroke:#333,stroke-width:2px
+    style N2 fill:#99f,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC5 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 **Actor**: Registry Nodes  
 **Goal**: Settle accumulated transaction records  
 **Flow**:
@@ -192,13 +287,14 @@ graph LR
 
 ## 🔧 Administrative Use Cases
 
+### UC-A1: Network Monitoring
+
 ```mermaid
 graph LR
     A[Administrator] --> UC1((Monitor Network))
-    A --> UC2((Manage Tool Reputation))
-    A --> UC3((Configure Security Policies))
-    UC1 -.includes.-> UC4((View Metrics))
-    UC2 -.includes.-> UC4
+    UC1 -.includes.-> UC2((View Metrics))
+    UC1 --> UC3((Identify Issues))
+    UC3 --> UC4((Take Action))
     
     style A fill:#f69,stroke:#333,stroke-width:2px
     style UC1 fill:#bbf,stroke:#333,stroke-width:1px
@@ -207,7 +303,6 @@ graph LR
     style UC4 fill:#bbf,stroke:#333,stroke-width:1px
 ```
 
-### UC-A1: Network Monitoring
 **Actor**: Administrator  
 **Goal**: Assess health and activity of the registry network  
 **Flow**:
@@ -218,6 +313,21 @@ graph LR
 5. Administrator can take corrective action if needed
 
 ### UC-A2: Tool Reputation Management
+
+```mermaid
+graph LR
+    A[Administrator] --> UC1((Manage Tool Reputation))
+    UC1 -.includes.-> UC2((View Metrics))
+    UC1 --> UC3((Adjust Trust Settings))
+    UC3 --> UC4((Propagate Changes))
+    
+    style A fill:#f69,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 **Actor**: Administrator  
 **Goal**: Review and manage tool trust levels  
 **Flow**:
@@ -227,23 +337,50 @@ graph LR
 4. Administrator can block problematic tools
 5. Trust changes propagate to connected nodes according to trust model
 
+### UC-A3: Configure Security Policies
+
+```mermaid
+graph LR
+    A[Administrator] --> UC1((Configure Security Policies))
+    UC1 --> UC2((Define Rules))
+    UC2 --> UC3((Apply Policies))
+    UC3 --> UC4((Monitor Enforcement))
+    
+    style A fill:#f69,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
+**Actor**: Administrator  
+**Goal**: Establish security parameters for the registry node  
+**Flow**:
+1. Administrator accesses security configuration interface
+2. Administrator defines authentication requirements
+3. Administrator configures trust thresholds and policies
+4. Administrator sets access control defaults
+5. System applies security policies to all registry operations
+6. Administrator monitors security policy enforcement
+
 ## 🔒 Security Use Cases
+
+### UC-S1: Node Verification
 
 ```mermaid
 graph LR
     N1[Registry Node A] --> UC1((Verify Node Identity))
-    N2[Registry Node B] --> UC2((Manage Trust Levels))
-    UC1 -.includes.-> UC3((Validate Signatures))
-    UC2 -.includes.-> UC3
+    UC1 -.includes.-> UC2((Validate Signatures))
+    UC1 --> UC3((Check References))
+    UC3 --> UC4((Establish Trust))
     
     style N1 fill:#99f,stroke:#333,stroke-width:2px
-    style N2 fill:#99f,stroke:#333,stroke-width:2px
     style UC1 fill:#bbf,stroke:#333,stroke-width:1px
     style UC2 fill:#bbf,stroke:#333,stroke-width:1px
     style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
 ```
 
-### UC-S1: Node Verification
 **Actor**: Registry Node  
 **Goal**: Verify identity and trustworthiness of another node  
 **Flow**:
@@ -253,3 +390,29 @@ graph LR
 4. Node validates reputation score if available
 5. Node grants appropriate trust level based on verification results
 6. Node establishes secure communication channel for future interactions
+
+### UC-S2: Manage Trust Levels
+
+```mermaid
+graph LR
+    N1[Registry Node A] --> UC1((Manage Trust Levels))
+    UC1 -.includes.-> UC2((Validate Signatures))
+    UC1 --> UC3((Evaluate Performance))
+    UC3 --> UC4((Update Trust Settings))
+    
+    style N1 fill:#99f,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
+**Actor**: Registry Node  
+**Goal**: Maintain and adjust trust relationships with other nodes  
+**Flow**:
+1. Node monitors interaction history with other nodes
+2. Node evaluates reliability and behavior patterns
+3. Node adjusts trust levels based on observed performance
+4. Node shares trust assessments with other trusted nodes
+5. Node applies community feedback to trust calculations
+6. Trust changes affect routing, access, and transaction privileges
