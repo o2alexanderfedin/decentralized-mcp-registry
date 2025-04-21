@@ -2,6 +2,21 @@
 
 ## 🤖 AI Agent Use Cases
 
+```mermaid
+graph LR
+    A[AI Agent] --> UC1((Discover Available Tools))
+    A --> UC2((Invoke Tool))
+    A --> UC3((Search by Capability))
+    UC3 -.includes.-> UC4((View Tool Documentation))
+    UC1 -.extends.-> UC4
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 ### UC-A1: Tool Discovery
 **Actor**: AI Agent  
 **Goal**: Discover available tools across the network  
@@ -34,6 +49,21 @@
 4. Agent selects and invokes the most appropriate tool
 
 ## 🧑‍💻 Tool Provider Use Cases
+
+```mermaid
+graph LR
+    P[Tool Provider] --> UC1((Register Tool))
+    P --> UC2((Update Tool))
+    P --> UC3((Define Billing Terms))
+    UC1 -.includes.-> UC4((Define Access Controls))
+    UC2 -.includes.-> UC4
+    
+    style P fill:#f96,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
 
 ### UC-P1: Tool Registration
 **Actor**: Tool Provider  
@@ -69,6 +99,21 @@
 6. Agents/users can review terms before tool usage
 
 ## 👤 Operator Use Cases
+
+```mermaid
+graph LR
+    O[Node Operator] --> UC1((Join Network))
+    O --> UC2((Install Local Tool))
+    O --> UC3((Configure Access Controls))
+    UC1 -.includes.-> UC4((Configure Node))
+    UC2 -.includes.-> UC4
+    
+    style O fill:#9f6,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
 
 ### UC-O1: Network Joining
 **Actor**: Node Operator  
@@ -107,6 +152,22 @@
 
 ## 💼 Financial Use Cases
 
+```mermaid
+graph LR
+    N1[Registry Node A] --> UC1((Record Transactions))
+    N2[Registry Node B] --> UC2((Reconcile Billing))
+    UC1 -.extends.-> UC3((Generate Reports))
+    UC2 -.extends.-> UC3
+    UC2 -.includes.-> UC4((Mutual Clearing))
+    
+    style N1 fill:#99f,stroke:#333,stroke-width:2px
+    style N2 fill:#99f,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 ### UC-F1: Transaction Recording
 **Actor**: Registry Nodes  
 **Goal**: Track billable tool usage  
@@ -131,6 +192,21 @@
 
 ## 🔧 Administrative Use Cases
 
+```mermaid
+graph LR
+    A[Administrator] --> UC1((Monitor Network))
+    A --> UC2((Manage Tool Reputation))
+    A --> UC3((Configure Security Policies))
+    UC1 -.includes.-> UC4((View Metrics))
+    UC2 -.includes.-> UC4
+    
+    style A fill:#f69,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC4 fill:#bbf,stroke:#333,stroke-width:1px
+```
+
 ### UC-A1: Network Monitoring
 **Actor**: Administrator  
 **Goal**: Assess health and activity of the registry network  
@@ -152,6 +228,20 @@
 5. Trust changes propagate to connected nodes according to trust model
 
 ## 🔒 Security Use Cases
+
+```mermaid
+graph LR
+    N1[Registry Node A] --> UC1((Verify Node Identity))
+    N2[Registry Node B] --> UC2((Manage Trust Levels))
+    UC1 -.includes.-> UC3((Validate Signatures))
+    UC2 -.includes.-> UC3
+    
+    style N1 fill:#99f,stroke:#333,stroke-width:2px
+    style N2 fill:#99f,stroke:#333,stroke-width:2px
+    style UC1 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC2 fill:#bbf,stroke:#333,stroke-width:1px
+    style UC3 fill:#bbf,stroke:#333,stroke-width:1px
+```
 
 ### UC-S1: Node Verification
 **Actor**: Registry Node  
